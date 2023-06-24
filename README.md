@@ -1,0 +1,2 @@
+# idle-clicker
+Lato-Lato

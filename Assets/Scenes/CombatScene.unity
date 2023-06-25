@@ -374,6 +374,21 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 9035224915879571719, guid: 655ac8b1fda3d114c9d7716a92aed6b5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9961947
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035224915879571719, guid: 655ac8b1fda3d114c9d7716a92aed6b5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.08715578
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035224915879571719, guid: 655ac8b1fda3d114c9d7716a92aed6b5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 655ac8b1fda3d114c9d7716a92aed6b5, type: 3}
 --- !u!1 &260246211 stripped
@@ -402,7 +417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickerClick: 323
   clickCounter: 0
-  hitVFX: {fileID: 0}
+  playerArm: {fileID: 558335201}
 --- !u!1 &339086802
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +530,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &558335201 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4015407971872380451, guid: 655ac8b1fda3d114c9d7716a92aed6b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 260246210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &627027561
 PrefabInstance:
   m_ObjectHideFlags: 0

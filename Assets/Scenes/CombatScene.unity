@@ -289,10 +289,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2726411899674068810, guid: 655ac8b1fda3d114c9d7716a92aed6b5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419784976235936774, guid: 655ac8b1fda3d114c9d7716a92aed6b5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170473371570614801, guid: 655ac8b1fda3d114c9d7716a92aed6b5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5393840061641456039, guid: 655ac8b1fda3d114c9d7716a92aed6b5,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525335193542986080, guid: 655ac8b1fda3d114c9d7716a92aed6b5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7919320454802925538, guid: 655ac8b1fda3d114c9d7716a92aed6b5,
         type: 3}
@@ -349,6 +369,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8569233515758975475, guid: 655ac8b1fda3d114c9d7716a92aed6b5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 655ac8b1fda3d114c9d7716a92aed6b5, type: 3}
 --- !u!1 &260246211 stripped
@@ -375,9 +400,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4529a645a87ec3644851bc1aa721b509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickerInput: 32
+  clickerClick: 323
   clickCounter: 0
-  clickHoldSpeed: 3
+  hitVFX: {fileID: 0}
 --- !u!1 &339086802
 GameObject:
   m_ObjectHideFlags: 0

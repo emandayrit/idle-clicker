@@ -1,21 +1,19 @@
 using System;
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] KeyCode clickerInput = KeyCode.Space;
+    [SerializeField] KeyCode clickerClick;
     [SerializeField] float clickCounter = 0;
-
-    [SerializeField,Tooltip("The lower the value the slower the click count.")]
-    float clickHoldSpeed = 3; 
 
     private void Update()
     {
-        if (Input.GetKey(clickerInput))
+        if (Input.GetKeyDown(clickerClick))
         {
-            clickCounter += clickHoldSpeed * Time.deltaTime;
-            Debug.Log($"you clicked {math.ceil(clickCounter)}");
+            Debug.Log($"you clicked {clickCounter++}");
         }
     }
+
 }

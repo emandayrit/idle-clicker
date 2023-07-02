@@ -9,6 +9,9 @@ public class AttackClick : MonoBehaviour
     [SerializeField] GameObject weaponArm;
     [SerializeField] GameObject enemyBody;
 
+    [Header ("UI Objects")]
+    [SerializeField] GameObject playerHitUI;
+
     void Update()
     {
         ClickAttack();
@@ -21,6 +24,17 @@ public class AttackClick : MonoBehaviour
             Debug.Log($"you clicked!");
             weaponArm.GetComponent<Animator>().SetTrigger("Attack");
             enemyBody.GetComponent<Animator>().SetTrigger("Hurt");
+
+            //GameObject hitUI = Instantiate(playerHitUI, transform.position, Quaternion.identity);
+            playerHitUI.SetActive(true);
+            StartCoroutine(FadeDelay());
+            //Destroy(hitUI, 1);
         }
+    }
+
+    IEnumerator FadeDelay()
+    {
+        yield return new WaitForSeconds(0.2f);
+        playerHitUI.SetActive(false);
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] GameObject playerBody;
+    [SerializeField] Animator playerAnimator;
     [SerializeField] float moveSpeed;
 
     private Vector3 _input;
@@ -11,6 +12,16 @@ public class PlayerMovement : MonoBehaviour
     {
         GetInput();
         Look();
+
+        // Player Animations here
+        if (_input == Vector3.zero)
+        {
+            playerAnimator.SetFloat("Speed", 0);
+        }
+        else
+        {
+            playerAnimator.SetFloat("Speed", 0.5f);
+        }
     }
 
     void FixedUpdate()

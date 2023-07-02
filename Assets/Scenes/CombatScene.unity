@@ -563,6 +563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackInput: 323
   weaponArm: {fileID: 558335201}
+  enemyBody: {fileID: 627027562}
 --- !u!4 &269919586
 Transform:
   m_ObjectHideFlags: 0
@@ -887,6 +888,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f7d388aed26e824db476acbf05f8cdd, type: 3}
+--- !u!1 &627027562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7917216740954949543, guid: 0f7d388aed26e824db476acbf05f8cdd,
+    type: 3}
+  m_PrefabInstance: {fileID: 627027561}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &877725730
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,9 @@ using UnityEngine;
 public class AttackClick : MonoBehaviour
 {
     [SerializeField] KeyCode attackInput = KeyCode.Mouse0;
+
     [SerializeField] GameObject weaponArm;
+    [SerializeField] GameObject enemyBody;
 
     void Update()
     {
@@ -18,6 +20,7 @@ public class AttackClick : MonoBehaviour
         {
             Debug.Log($"you clicked!");
             weaponArm.GetComponent<Animator>().SetTrigger("Attack");
+            enemyBody.GetComponent<Animator>().SetTrigger("Hurt");
         }
     }
 }

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 15
   currentHp: 15
-  attack: 20
+  attack: 5
   attackSpeed: 1

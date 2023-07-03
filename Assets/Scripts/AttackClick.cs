@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using TMPro;
 using UnityEngine;
 
 public class AttackClick : MonoBehaviour
@@ -9,9 +9,20 @@ public class AttackClick : MonoBehaviour
     [SerializeField] GameObject weaponArm;
     [SerializeField] GameObject enemyBody;
 
+    [SerializeField] StatsValue playerStats;
+
     [Header ("UI Objects")]
     [SerializeField] GameObject playerHitTextUI;
     [SerializeField] GameObject playerHitParentUI;
+
+    public static event Action<int> attackAction;
+
+    private GameObject _enemy;
+
+    private void Awake()
+    {
+        _enemy = FindObjectOfType<Stats>().transform.GetChild(0).gameObject;
+    }
 
     void Update()
     {
@@ -20,17 +31,33 @@ public class AttackClick : MonoBehaviour
 
     void ClickAttack()
     {
-        if (Input.GetKeyDown(attackInput))
+        if (CanAttack())
         {
-            Debug.Log($"you clicked!");
-            weaponArm.GetComponent<Animator>().SetTrigger("Attack");
-            enemyBody.GetComponent<Animator>().SetTrigger("Hurt");
+            Debug.Log("attack!");
+            attackAction?.Invoke(playerStats.attack); // Starts to listen to Stats script
 
-            if (playerHitTextUI && playerHitParentUI)
-            {
-                GameObject hitUI = Instantiate(playerHitTextUI, playerHitParentUI.transform);
-                Destroy(hitUI, 1);
-            }
+            PlayerAnimation();
+            EnemyAnimation();
         }
     }
+
+    bool CanAttack() => (_enemy.activeInHierarchy && Input.GetKeyDown(attackInput)) ? true : false;
+
+    void PlayerAnimation()
+    {
+        weaponArm.GetComponent<Animator>().SetTrigger("Attack");
+    }
+
+    void EnemyAnimation()
+    {
+        enemyBody.GetComponent<Animator>().SetTrigger("Hurt");
+
+        if (playerHitTextUI && playerHitParentUI)
+        {
+            GameObject hitUI = Instantiate(playerHitTextUI, playerHitParentUI.transform);
+            hitUI.GetComponent<TMP_Text>().text = $"-{playerStats.attack}";
+            Destroy(hitUI, 1);
+        }
+    }
+
 }

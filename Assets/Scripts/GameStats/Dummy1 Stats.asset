@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df1b5e5bd3cf5c4281a98034cbbad72, type: 3}
   m_Name: Dummy1 Stats
   m_EditorClassIdentifier: 
-  maxHP: 25
-  currentHp: 0
-  damage: 1
+  maxHP: 100
+  currentHp: 100
+  attack: 0
   attackSpeed: 1

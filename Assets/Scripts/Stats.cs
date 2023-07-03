@@ -26,18 +26,19 @@ public class Stats : MonoBehaviour
 
             if (IsDead())
             {
-                float _switchSceneInSeconds = 1f;
-                StartCoroutine(EnemyDefeatedCoroutine(_switchSceneInSeconds));
+                float _switchScene = 1.5f;
+                StartCoroutine(EnemyDefeatedCoroutine(_switchScene));
             }
         }
     }
 
-    IEnumerator EnemyDefeatedCoroutine(float _transitionTimeInSeconds)
+    IEnumerator EnemyDefeatedCoroutine(float _seconds)
     {
         Debug.Log("Enemy Defeated!");
         _enemyBody.SetActive(false);
 
-        yield return new WaitForSeconds(_transitionTimeInSeconds);
+        yield return new WaitForSeconds(_seconds);
+
         SceneManager.LoadScene(1); //0 = Main Menu, 1 = Game Scene, 2 = Combat Scene
     }
 

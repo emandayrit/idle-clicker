@@ -13,15 +13,7 @@ public class PlayerMovement : MonoBehaviour
         GetInput();
         Look();
 
-        // Player Animations here
-        if (_input == Vector3.zero)
-        {
-            playerAnimator.SetFloat("Speed", 0);
-        }
-        else
-        {
-            playerAnimator.SetFloat("Speed", 0.5f);
-        }
+        WalkAnimation();
     }
 
     void FixedUpdate()
@@ -48,6 +40,19 @@ public class PlayerMovement : MonoBehaviour
     void Move()
     {
         transform.position += _input.normalized * moveSpeed * Time.fixedDeltaTime;
+    }
+
+    void WalkAnimation()
+    {
+        // Player Animations here
+        if (_input == Vector3.zero)
+        {
+            playerAnimator.SetFloat("Speed", 0);
+        }
+        else
+        {
+            playerAnimator.SetFloat("Speed", 0.5f);
+        }
     }
 
 }

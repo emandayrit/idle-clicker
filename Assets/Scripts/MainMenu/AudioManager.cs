@@ -9,7 +9,6 @@ public class AudioManager : MonoBehaviour
     public Audio[] audioBGM, audioSFX;
     public AudioSource bgmSource, sfxSource;
 
-
     private void Awake()
     {
         if(instance == null)
@@ -25,16 +24,16 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        PlayBGM("Komiku Test");
+        
+        PlayBGM("Komiku"); 
     }
 
     public void PlayBGM(string name)
     {
-        Audio audio = Array.Find(audioBGM, audios => audios.audioName == name);
+        Audio audio = Array.Find(audioBGM, a => a.audioName == name);
         if (audio == null) return;
 
         bgmSource.clip = audio.audioClip;
-        bgmSource.loop = true;
         bgmSource.Play();
     }
 
@@ -45,4 +44,6 @@ public class AudioManager : MonoBehaviour
 
         sfxSource.PlayOneShot(audio.audioClip);
     }
+
+    
 }   

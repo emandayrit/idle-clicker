@@ -30,19 +30,19 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBGM(string name)
     {
-        Audio audio = Array.Find(audioBGM, a => a.audioName == name);
-        if (audio == null) return;
+        Audio bgm = Array.Find(audioBGM, a => a.audioName == name);
+        if (bgm == null) return;
 
-        bgmSource.clip = audio.audioClip;
+        bgmSource.clip = bgm.audioClip;
         bgmSource.Play();
     }
 
     public void PlaySFX(string name)
     {
-        Audio audio = Array.Find(audioSFX, audios => audios.audioName == name);
-        if (audio == null) return;
+        Audio sfx = Array.Find(audioSFX, a => a.audioName == name);
+        if (sfx == null) return;
 
-        sfxSource.PlayOneShot(audio.audioClip);
+        sfxSource.PlayOneShot(sfx.audioClip);
     }
 
     

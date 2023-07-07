@@ -13,16 +13,26 @@ public class VolumeController : MonoBehaviour
     private int firsPlay;
     private float bgmVolume, sfxVolume;
 
-    public Slider bgmVolumeSlider, sfxVolumeSlider;
+    Slider bgmVolumeSlider, sfxVolumeSlider;
 
     AudioManager audioManager;
 
+    SliderSetup sliderSetup;
 
     private void Start()
     {
         audioManager = FindAnyObjectByType<AudioManager>();
 
         firsPlay = PlayerPrefs.GetInt(FirstPlay);
+
+        sliderSetup = FindAnyObjectByType<SliderSetup>();
+        bgmVolumeSlider = sliderSetup.bgmVolumeSlider;
+        sfxVolumeSlider = sliderSetup.sfxVolumeSlider;
+
+
+        bgmVolumeSlider.onValueChanged.AddListener(delegate { UpdateVolume(); });
+        sfxVolumeSlider.onValueChanged.AddListener(delegate { UpdateVolume(); });
+
 
         if (firsPlay == 0)
         {
@@ -39,12 +49,17 @@ public class VolumeController : MonoBehaviour
         }
         else
         {
-            bgmVolume = PlayerPrefs.GetFloat(BGMVolumePref);
-            bgmVolumeSlider.value = bgmVolume;
-
-            sfxVolume = PlayerPrefs.GetFloat(SFXVolumePref);
-            sfxVolumeSlider.value = sfxVolume;
+            GetVolumePref();
         }
+    }
+
+    public void GetVolumePref()
+    {
+        bgmVolume = PlayerPrefs.GetFloat(BGMVolumePref);
+        bgmVolumeSlider.value = bgmVolume;
+
+        sfxVolume = PlayerPrefs.GetFloat(SFXVolumePref);
+        sfxVolumeSlider.value = sfxVolume;
     }
 
 

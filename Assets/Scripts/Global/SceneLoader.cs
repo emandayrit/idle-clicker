@@ -9,11 +9,14 @@ public class SceneLoader : MonoBehaviour
 
     AudioPlayer audioPlayer;
     AudioManager audioManager;
+    VolumeController volumeController;
 
     private void Awake()
     {
         audioPlayer = FindAnyObjectByType<AudioPlayer>();
         audioManager = FindAnyObjectByType<AudioManager>();
+        volumeController = FindAnyObjectByType<VolumeController>();
+
 
         if (instance == null)
         {

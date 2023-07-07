@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
     {
         player = FindAnyObjectByType<AudioPlayer>();
 
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        //DontDestroyOnLoad(gameObject);
         AddAudioSource(audioBGM);
         AddAudioSource(audioSFX);
     }

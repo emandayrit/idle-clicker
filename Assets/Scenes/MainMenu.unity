@@ -207,8 +207,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 332797038}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1312411375}
+        m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
         m_MethodName: PlaySFX
         m_Mode: 5
         m_Arguments:
@@ -716,8 +716,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 332797038}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1312411375}
+        m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
         m_MethodName: PlaySFX
         m_Mode: 5
         m_Arguments:
@@ -976,7 +976,6 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: b53ef6ed49b0a314eb807bc0294e1a99, type: 3}
     audioSource: {fileID: 0}
   bgmName: 
-  player: {fileID: 1312411375}
 --- !u!4 &332797039
 Transform:
   m_ObjectHideFlags: 0
@@ -1747,8 +1746,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13dc494e0fcfdf84692f41a244b4c458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioPlayer: {fileID: 1312411375}
-  audioManager: {fileID: 332797038}
 --- !u!4 &799703715
 Transform:
   m_ObjectHideFlags: 0
@@ -3061,7 +3058,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2ea57db0a503049b7e81f829f0062f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 332797038}
 --- !u!1 &1414262295
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class Stats : MonoBehaviour
 {
     [SerializeField] StatsValue stats;
     [SerializeField] Animator enemyDeathAnimation;
+    [SerializeField] GameObject victoryUI;
     private GameObject _enemyBody;
     private string _enemyTag = "Enemy";
 
@@ -39,6 +40,7 @@ public class Stats : MonoBehaviour
 
         // Do Death animation
         enemyDeathAnimation.SetTrigger("Death");
+        victoryUI.SetActive(true);
         yield return new WaitForSeconds(_seconds);
 
         SceneManager.LoadScene(1); //0 = Main Menu, 1 = Game Scene, 2 = Combat Scene

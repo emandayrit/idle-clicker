@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -838,6 +838,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1033904439}
     m_Modifications:
+    - target: {fileID: 1619949683, guid: 0f7d388aed26e824db476acbf05f8cdd, type: 3}
+      propertyPath: enemyDeathAnimation
+      value: 
+      objectReference: {fileID: 627027565}
     - target: {fileID: 2901642470017278658, guid: 0f7d388aed26e824db476acbf05f8cdd,
         type: 3}
       propertyPath: m_Name
@@ -909,6 +913,12 @@ GameObject:
 --- !u!1 &627027563 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2901642470017278658, guid: 0f7d388aed26e824db476acbf05f8cdd,
+    type: 3}
+  m_PrefabInstance: {fileID: 627027561}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &627027565 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3948502668113117547, guid: 0f7d388aed26e824db476acbf05f8cdd,
     type: 3}
   m_PrefabInstance: {fileID: 627027561}
   m_PrefabAsset: {fileID: 0}

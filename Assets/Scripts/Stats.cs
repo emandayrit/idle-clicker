@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class Stats : MonoBehaviour
 {
     [SerializeField] StatsValue stats;
+    [SerializeField] Animator enemyDeathAnimation;
     private GameObject _enemyBody;
     private string _enemyTag = "Enemy";
 
@@ -26,7 +27,7 @@ public class Stats : MonoBehaviour
 
             if (IsDead())
             {
-                float _switchScene = 1.5f;
+                float _switchScene = 3f;
                 StartCoroutine(EnemyDefeatedCoroutine(_switchScene));
             }
         }
@@ -35,8 +36,9 @@ public class Stats : MonoBehaviour
     IEnumerator EnemyDefeatedCoroutine(float _seconds)
     {
         Debug.Log("Enemy Defeated!");
-        _enemyBody.SetActive(false);
 
+        // Do Death animation
+        enemyDeathAnimation.SetTrigger("Death");
         yield return new WaitForSeconds(_seconds);
 
         SceneManager.LoadScene(1); //0 = Main Menu, 1 = Game Scene, 2 = Combat Scene

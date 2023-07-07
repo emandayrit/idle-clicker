@@ -9,8 +9,7 @@ public class HPBar : MonoBehaviour
     [SerializeField] Image hpBar;
     [SerializeField] TMP_Text hpBarText;
     [SerializeField] StatsValue value;
-
-
+    
     private void Awake()
     {
         hpBar.fillAmount = 1;

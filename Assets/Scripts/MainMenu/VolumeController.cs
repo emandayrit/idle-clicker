@@ -22,8 +22,6 @@ public class VolumeController : MonoBehaviour
 
         firsPlay = PlayerPrefs.GetInt(FirstPlay);
 
-        //bgmVolumeSlider.onValueChanged.AddListener(delegate { UpdateVolume(); });
-
         if (firsPlay == 0)
         {
             bgmVolume = .50f;
@@ -63,7 +61,17 @@ public class VolumeController : MonoBehaviour
 
     public void UpdateVolume() 
     {
-        audioManager.bgmSource.volume = bgmVolumeSlider.value;
-        audioManager.sfxSource.volume = sfxVolumeSlider.value;
+        GetSourceAndUpdate(bgmVolumeSlider, audioManager.audioBGM);
+        GetSourceAndUpdate(sfxVolumeSlider, audioManager.audioSFX);
+
+    }
+
+
+    void GetSourceAndUpdate(Slider slider, Audio[] audio)
+    {
+        for (int i = 0; i < audio.Length; i++)
+        {
+            audio[i].audioSource.volume = slider.value;
+        }
     }
 }

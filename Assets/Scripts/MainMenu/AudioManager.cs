@@ -8,8 +8,14 @@ public class AudioManager : MonoBehaviour
 
     public Audio[] audioBGM, audioSFX;
 
+    public string bgmName;
+
+    AudioPlayer player;
+
     private void Awake()
     {
+        player = FindAnyObjectByType<AudioPlayer>();
+
         if(instance == null)
         {
             instance = this;
@@ -29,29 +35,32 @@ public class AudioManager : MonoBehaviour
         foreach(Audio a in audios)
         {
             a.audioSource = gameObject.AddComponent<AudioSource>();
+            a.audioSource.loop = true;
             a.audioSource.clip = a.audioClip;
         }
     }
 
-    private void Start()
-    {
-        PlayBGM("Komiku"); 
-    }
+    //private void Start()
+    //{
+    //    string audioName = "Komiku";
+    //    player.PlayBGM(audioName);
+    //    bgmName = audioName;
+    //}
 
-    public void PlayBGM(string name)
-    {
-        Audio bgm = Array.Find(audioBGM, a => a.audioName == name);
-        if (bgm == null) return;
+    //public void PlayBGM(string name)
+    //{
+    //    Audio bgm = Array.Find(audioBGM, a => a.audioName == name);
+    //    if (bgm == null) return;
 
-        bgm.audioSource.clip = bgm.audioClip;
-        bgm.audioSource.Play();
-    }
+    //    bgm.audioSource.clip = bgm.audioClip;
+    //    bgm.audioSource.Play();
+    //}
 
-    public void PlaySFX(string name)
-    {
-        Audio sfx = Array.Find(audioSFX, a => a.audioName == name);
-        if (sfx == null) return;
-        sfx.audioSource.PlayOneShot(sfx.audioClip);
-    }
+    //public void PlaySFX(string name)
+    //{
+    //    Audio sfx = Array.Find(audioSFX, a => a.audioName == name);
+    //    if (sfx == null) return;
+    //    sfx.audioSource.PlayOneShot(sfx.audioClip);
+    //}
 
 }   

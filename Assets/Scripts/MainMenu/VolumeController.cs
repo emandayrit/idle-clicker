@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class VolumeController : MonoBehaviour
 {
+
     private static readonly string BGMVolumePref = "BGMVolume";
     private static readonly string SFXVolumePref = "SFXVolume";
     private static readonly string FirstPlay = "FirstPlay";
@@ -15,6 +16,7 @@ public class VolumeController : MonoBehaviour
     public Slider bgmVolumeSlider, sfxVolumeSlider;
 
     AudioManager audioManager;
+
 
     private void Start()
     {

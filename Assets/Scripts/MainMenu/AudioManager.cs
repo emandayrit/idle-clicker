@@ -64,6 +64,7 @@ public class AudioManager : MonoBehaviour
     {
         Audio sfx = Array.Find(audioSFX, a => a.audioName == name);
         if (sfx == null) return;
+
         sfx.audioSource.PlayOneShot(sfx.audioClip);
     }
 

@@ -8,24 +8,21 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     public Audio[] audioBGM, audioSFX;
+    
     float fadeDuration;
 
     public string bgmName;
 
     private void Awake()
     {
+        AddAudioSource();
 
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
-        AddAudioSource(audioBGM);
-        AddAudioSource(audioSFX);
+
     }
 
     private void Start()
@@ -34,9 +31,16 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    public void AddAudioSource(Audio[] audios)
+    public void AddAudioSource()
     {
-        foreach(Audio a in audios)
+        foreach(Audio a in audioBGM)
+        {
+            a.audioSource = gameObject.AddComponent<AudioSource>();
+            a.audioSource.loop = true;
+            a.audioSource.clip = a.audioClip;
+        }
+
+        foreach (Audio a in audioSFX)
         {
             a.audioSource = gameObject.AddComponent<AudioSource>();
             a.audioSource.loop = true;
@@ -50,6 +54,7 @@ public class AudioManager : MonoBehaviour
         if (bgm == null) return;
 
         bgm.audioSource.clip = bgm.audioClip;
+        bgm.audioSource.loop = true;
 
         if (!isFadeIn)
         {

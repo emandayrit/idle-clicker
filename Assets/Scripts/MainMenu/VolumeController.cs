@@ -20,6 +20,7 @@ public class VolumeController : MonoBehaviour
     {
         PlayerPrefs.SetFloat(BGMVolumePref, bgmSlider.value);
         PlayerPrefs.SetFloat(SFXVolumePref, sfxSlider.value);
+        PlayerPrefs.Save();
     }
 
     public void GetPref()

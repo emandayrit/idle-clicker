@@ -152,7 +152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &107366412
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1487,6 +1487,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 859305240}
     m_Modifications:
+    - target: {fileID: 129596558640903470, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -256
+      objectReference: {fileID: 0}
+    - target: {fileID: 129596558640903470, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -115
+      objectReference: {fileID: 0}
+    - target: {fileID: 201320877355523058, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -19
+      objectReference: {fileID: 0}
+    - target: {fileID: 355263312685772160, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1137656662147298832, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -1526,6 +1546,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Options Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137656662510608210, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1137656662510608211, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
         type: 3}
@@ -1632,6 +1657,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1552327236714311335, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988761734552636116, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988761734552636116, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812173203370875261, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812173203370875261, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3440109735426306452, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1727,6 +1777,41 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4293968120366588487, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_Name
+      value: Audio Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313396364864741788, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313396364864741788, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313396364864741788, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4340571041210077328, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_Name
+      value: Attack Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525277052851939611, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4777222168569848468, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_Name
+      value: Controls Text
+      objectReference: {fileID: 0}
     - target: {fileID: 4947643753140826834, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
         type: 3}
       propertyPath: m_TagString
@@ -1736,6 +1821,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: BGMSlider
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124047635488307219, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124047635488307219, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000535170550576028, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613216700571238122, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 9176000725361465186, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 161
+      objectReference: {fileID: 0}
+    - target: {fileID: 9176000725361465186, guid: 1b4696a0316a0754dae24bc5c0ea05e9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b4696a0316a0754dae24bc5c0ea05e9, type: 3}

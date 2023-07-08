@@ -4,19 +4,17 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-
     public static SceneLoader instance;
 
-    AudioPlayer audioPlayer;
     AudioManager audioManager;
-    VolumeController volumeController;
+    private string audioName;
+
+    ButtonChangeScene buttonChange;
 
     private void Awake()
     {
-        audioPlayer = FindAnyObjectByType<AudioPlayer>();
         audioManager = FindAnyObjectByType<AudioManager>();
-        volumeController = FindAnyObjectByType<VolumeController>();
-
+        buttonChange = FindAnyObjectByType<ButtonChangeScene>();
 
         if (instance == null)
         {
@@ -46,16 +44,27 @@ public class SceneLoader : MonoBehaviour
         switch(sceneIndex)
         {
             case 0:
-                audioPlayer.PlayBGM("Komiku", false);
-                audioManager.bgmName = "Komiku";
+                audioName = "Komiku";
+
+                if(!buttonChange.isChangeSceneActivated())
+                {
+                    audioManager.PlayBGM(audioName, false);
+                    break;
+                }
+
+                audioManager.PlayBGM(audioName, true);
                 break;
             case 1:
-                audioPlayer.PlayBGM("Battle", true);
-                audioManager.bgmName = "Battle";
+                audioName = "Battle";
+                audioManager.PlayBGM(audioName, true);
                 break;
             case 2:
                 break;
         }
     }
 
+    public string GetAudioName()
+    {
+        return audioName;
+    }
 }

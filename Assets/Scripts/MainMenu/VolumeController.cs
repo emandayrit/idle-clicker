@@ -11,38 +11,35 @@ public class VolumeController : MonoBehaviour
     private static readonly string FirstPlay = "FirstPlay";
 
     private int firsPlay;
-    private float bgmVolume, sfxVolume;
-
-    Slider bgmVolumeSlider, sfxVolumeSlider;
-
-    AudioManager audioManager;
+    public float bgmVolume, sfxVolume;
 
     SliderSetup sliderSetup;
 
+
+    public void UpdatePref(Slider bgmSlider, Slider sfxSlider)
+    {
+        PlayerPrefs.SetFloat(BGMVolumePref, bgmSlider.value);
+        PlayerPrefs.SetFloat(SFXVolumePref, sfxSlider.value);
+    }
+
+    public void GetPref()
+    {
+        bgmVolume = PlayerPrefs.GetFloat(BGMVolumePref);
+        sfxVolume = PlayerPrefs.GetFloat(SFXVolumePref);
+    }
+
     private void Start()
     {
-        audioManager = FindAnyObjectByType<AudioManager>();
+        sliderSetup = FindAnyObjectByType<SliderSetup>();
 
         firsPlay = PlayerPrefs.GetInt(FirstPlay);
-
-        sliderSetup = FindAnyObjectByType<SliderSetup>();
-        bgmVolumeSlider = sliderSetup.bgmVolumeSlider;
-        sfxVolumeSlider = sliderSetup.sfxVolumeSlider;
-
-
-        bgmVolumeSlider.onValueChanged.AddListener(delegate { UpdateVolume(); });
-        sfxVolumeSlider.onValueChanged.AddListener(delegate { UpdateVolume(); });
-
 
         if (firsPlay == 0)
         {
             bgmVolume = .50f;
             sfxVolume = .50f;
 
-            bgmVolumeSlider.value = bgmVolume;
             PlayerPrefs.SetFloat(BGMVolumePref, bgmVolume);
-
-            sfxVolumeSlider.value = sfxVolume;
             PlayerPrefs.SetFloat(SFXVolumePref, sfxVolume);
 
             PlayerPrefs.SetInt(FirstPlay, -1);
@@ -53,20 +50,17 @@ public class VolumeController : MonoBehaviour
         }
     }
 
+
     public void GetVolumePref()
     {
         bgmVolume = PlayerPrefs.GetFloat(BGMVolumePref);
-        bgmVolumeSlider.value = bgmVolume;
-
         sfxVolume = PlayerPrefs.GetFloat(SFXVolumePref);
-        sfxVolumeSlider.value = sfxVolume;
     }
 
 
     public void SaveVolumeSettings() {
-
-        PlayerPrefs.SetFloat(BGMVolumePref, bgmVolumeSlider.value);
-        PlayerPrefs.SetFloat(SFXVolumePref, sfxVolumeSlider.value);
+        PlayerPrefs.SetFloat(BGMVolumePref, sliderSetup.bgmVolumeSlider.value);
+        PlayerPrefs.SetFloat(SFXVolumePref, sliderSetup.sfxVolumeSlider.value);
     }
 
     void OnApplicationFocus(bool focus)
@@ -75,16 +69,7 @@ public class VolumeController : MonoBehaviour
             SaveVolumeSettings();
     }
 
-
-    public void UpdateVolume() 
-    {
-        GetSourceAndUpdate(bgmVolumeSlider, audioManager.audioBGM);
-        GetSourceAndUpdate(sfxVolumeSlider, audioManager.audioSFX);
-
-    }
-
-
-    void GetSourceAndUpdate(Slider slider, Audio[] audio)
+    public void GetSourceAndUpdate(Slider slider, Audio[] audio)
     {
         for (int i = 0; i < audio.Length; i++)
         {

@@ -4,28 +4,28 @@ using System;
 
 public class ButtonChangeScene : MonoBehaviour
 {
+    private bool isChangeScene = false;
 
-    public int sceneIndex;
     AudioManager manager;
-    AudioFader fader;
-
+    SceneLoader loader;
     private void Start()
     {
         manager = FindAnyObjectByType<AudioManager>();
-        fader = FindAnyObjectByType<AudioFader>();
+        loader = FindAnyObjectByType<SceneLoader>();
     }
 
-    public void OnButtonClicked()
+    public void ChangeScene(int sceneIndex)
     {
         if (sceneIndex < 0 && sceneIndex > SceneManager.sceneCountInBuildSettings)
             return;
 
-        Audio bgm = Array.Find(manager.audioBGM, a => a.audioName == manager.bgmName);
-        if (bgm == null) return;
-
-        Debug.Log("adqweas " + bgm.audioSource.volume);
-
-        fader.FadeOut(bgm);
+        manager.StopBGM(loader.GetAudioName(), true);
+        isChangeScene = true;
         SceneManager.LoadScene(sceneIndex);
+    }
+
+    public bool isChangeSceneActivated()
+    {
+        return isChangeScene;
     }
 }

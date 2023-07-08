@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackClick : MonoBehaviour
 {
     [SerializeField] KeyCode attackInput = KeyCode.Mouse0;
+    KeyCode kc;
 
     [SerializeField] GameObject weaponArm;
     [SerializeField] GameObject enemyBody;
@@ -19,9 +20,18 @@ public class AttackClick : MonoBehaviour
 
     private GameObject _enemy;
 
+    KeyBindManager test;
+
     private void Awake()
     {
+  
         _enemy = FindObjectOfType<Stats>().transform.GetChild(0).gameObject;
+    }
+
+    private void Start()
+    {
+        test = FindAnyObjectByType<KeyBindManager>();
+        kc = test.attackKey;
     }
 
     void Update()
@@ -31,6 +41,7 @@ public class AttackClick : MonoBehaviour
 
     void ClickAttack()
     {
+       
         if (CanAttack())
         {
             Debug.Log("attack!");
@@ -41,7 +52,7 @@ public class AttackClick : MonoBehaviour
         }
     }
 
-    bool CanAttack() => (_enemy.activeInHierarchy && Input.GetKeyDown(attackInput)) ? true : false;
+    bool CanAttack() => (_enemy.activeInHierarchy && Input.GetKeyDown(kc)) ? true : false;
 
     void PlayerAnimation()
     {

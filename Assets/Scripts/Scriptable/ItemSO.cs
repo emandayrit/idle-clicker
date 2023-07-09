@@ -3,8 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemSO", menuName = "Item")]
 public class ItemSO : ScriptableObject
 {
-    public enum itemType{ Consumable, Weapon, Armor, Material }
-
+    public ItemType itemType;
     public string itemName;
     public int itemPrice;
 
@@ -14,4 +13,6 @@ public class ItemSO : ScriptableObject
     [Header("For Weapon/Armor")]
     public int attackIncrease;
     public int healthIncrease;
+
+    public enum ItemType{ Consumable, Weapon, Armor, Material }
 }

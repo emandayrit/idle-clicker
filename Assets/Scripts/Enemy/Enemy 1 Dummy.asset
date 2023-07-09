@@ -15,3 +15,5 @@ MonoBehaviour:
   enemyStats: {fileID: 11400000, guid: cb290f55679d6f0498719b6f843f83cf, type: 2}
   enemyPrefab: {fileID: 5393840061641456039, guid: 655ac8b1fda3d114c9d7716a92aed6b5,
     type: 3}
+  rewardGold: 100
+  rewardItems: []

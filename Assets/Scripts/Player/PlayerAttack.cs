@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class AttackClick : MonoBehaviour
+public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] KeyCode attackInput = KeyCode.Mouse0;
     KeyCode kc;
@@ -24,8 +24,7 @@ public class AttackClick : MonoBehaviour
 
     private void Awake()
     {
-  
-        _enemy = FindObjectOfType<Stats>().transform.GetChild(0).gameObject;
+        _enemy = FindObjectOfType<Stats>().transform.GetChild(0).gameObject; //might need to change soon
     }
 
     private void Start()
@@ -36,39 +35,43 @@ public class AttackClick : MonoBehaviour
 
     void Update()
     {
-        ClickAttack();
-    }
-
-    void ClickAttack()
-    {
-       
-        if (CanAttack())
+        if (CanPlayerAttack())
         {
-            Debug.Log("attack!");
-            attackAction?.Invoke(playerStats.attack); // Starts to listen to Stats script
-
-            PlayerAnimation();
-            EnemyAnimation();
+            DoAttack();
         }
     }
 
-    bool CanAttack() => (_enemy.activeInHierarchy && Input.GetKeyDown(kc)) ? true : false;
 
-    void PlayerAnimation()
+    void DoAttack()
+    {
+        attackAction?.Invoke(playerStats.attackDamage); // Starts to listen to Stats script
+
+        PlayerAttackAnimation();
+        EnemyHurtAnimation();
+    }
+
+    void PlayerAttackAnimation()
     {
         weaponArm.GetComponent<Animator>().SetTrigger("Attack");
     }
 
-    void EnemyAnimation()
+    void EnemyHurtAnimation()
     {
         enemyBody.GetComponent<Animator>().SetTrigger("Hurt");
 
+        StartEnemyPopupDamage();
+    }
+
+    void StartEnemyPopupDamage()
+    {
         if (playerHitTextUI && playerHitParentUI)
         {
             GameObject hitUI = Instantiate(playerHitTextUI, playerHitParentUI.transform);
-            hitUI.GetComponent<TMP_Text>().text = $"-{playerStats.attack}";
+            hitUI.GetComponent<TMP_Text>().text = $"-{playerStats.attackDamage}";
             Destroy(hitUI, 1);
         }
     }
 
+    //For readable booleans
+    bool CanPlayerAttack() => (_enemy.activeInHierarchy && Input.GetKeyDown(kc)) ? true : false; //Will Update this soon
 }

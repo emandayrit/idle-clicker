@@ -16,28 +16,26 @@ public class Stats : MonoBehaviour
         stats.InitializeEnemyHP();
     }
 
-    private void OnEnable() => AttackClick.attackAction += EnemyDamage;
+    private void OnEnable() => PlayerAttack.attackAction += EnemyDamage;
 
-    private void OnDisable() => AttackClick.attackAction -= EnemyDamage;
+    private void OnDisable() => PlayerAttack.attackAction -= EnemyDamage;
 
     public void EnemyDamage(int _damage)
     {
-        if(IsEnemy())
+        if(IsTargetAnEnemy())
         {
             stats.currentHp -= _damage;
 
-            if (IsDead())
+            if (IsEnemyDead())
             {
-                float _switchScene = 3f;
-                StartCoroutine(EnemyDefeatedCoroutine(_switchScene));
+                float _exitCombatSceneInSeconds = 3f;
+                StartCoroutine(EnemyDefeatedCoroutine(_exitCombatSceneInSeconds));
             }
         }
     }
 
     IEnumerator EnemyDefeatedCoroutine(float _seconds)
     {
-        Debug.Log("Enemy Defeated!");
-
         // Do Death animation
         enemyDeathAnimation.SetTrigger("Death");
         victoryUI.SetActive(true);
@@ -46,6 +44,7 @@ public class Stats : MonoBehaviour
         SceneManager.LoadScene(1); //0 = Main Menu, 1 = Game Scene, 2 = Combat Scene
     }
 
-    bool IsEnemy() => (gameObject.CompareTag(_enemyTag)) ? true : false;
-    bool IsDead() => (stats.currentHp <= 0) ? true : false;
+    //For readable booleans
+    private bool IsTargetAnEnemy() => (gameObject.CompareTag(_enemyTag)) ? true : false;
+    private bool IsEnemyDead() => (stats.currentHp <= 0) ? true : false;
 }

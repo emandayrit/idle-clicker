@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HPBar : MonoBehaviour
+public class HPBarHandler : MonoBehaviour
 {
     [SerializeField] Image hpBar;
     [SerializeField] TMP_Text hpBarText;
@@ -16,23 +14,21 @@ public class HPBar : MonoBehaviour
         UpdateHPBarText();
     }
 
-    private void OnEnable() => AttackClick.attackAction += EnemyDamage;
+    private void OnEnable() => PlayerAttack.attackAction += CalculateEnemyHPBar;
 
-    private void OnDisable() => AttackClick.attackAction -= EnemyDamage;
-
+    private void OnDisable() => PlayerAttack.attackAction -= CalculateEnemyHPBar;
 
     void LateUpdate()
     {
         UpdateHPBarText();
     }
 
-    void EnemyDamage(int _damage)
+    void CalculateEnemyHPBar(int _damage)
     {
         if (gameObject.CompareTag("Enemy"))
         {
             float damageBar = (float)(value.currentHp-1) / (float)value.maxHP;
             hpBar.fillAmount = damageBar;
-            Debug.Log(damageBar);
         }
     }
 

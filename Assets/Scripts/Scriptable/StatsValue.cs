@@ -6,7 +6,7 @@ public class StatsValue : ScriptableObject
 {
     public int maxHP;
     public int currentHp;
-    public int attack;
+    public int attackDamage;
     public float attackSpeed; //only for enemies
 
     public void InitializeEnemyHP()

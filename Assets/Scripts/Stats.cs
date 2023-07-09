@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Stats : MonoBehaviour
 {
-    [SerializeField] StatsValue stats;
+    [SerializeField] StatsSO stats;
     [SerializeField] Animator enemyDeathAnimation;
     [SerializeField] GameObject victoryUI;
     private GameObject _enemyBody;

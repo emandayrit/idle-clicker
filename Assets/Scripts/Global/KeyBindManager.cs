@@ -48,7 +48,6 @@ public class KeyBindManager : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().buildIndex != 2)
             buttonObject.transform.GetComponentInChildren<TMP_Text>().text = buttonText;
-
     }
 
     private void OnGUI()

@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] GameObject weaponArm;
     [SerializeField] GameObject enemyBody;
 
-    [SerializeField] StatsValue playerStats;
+    [SerializeField] StatsSO playerStats;
 
     [Header ("UI Objects")]
     [SerializeField] GameObject playerHitTextUI;

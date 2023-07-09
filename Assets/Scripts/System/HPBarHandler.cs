@@ -6,7 +6,7 @@ public class HPBarHandler : MonoBehaviour
 {
     [SerializeField] Image hpBar;
     [SerializeField] TMP_Text hpBarText;
-    [SerializeField] StatsValue value;
+    [SerializeField] StatsSO value;
     
     private void Awake()
     {

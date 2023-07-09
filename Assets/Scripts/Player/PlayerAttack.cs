@@ -17,6 +17,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] GameObject playerHitParentUI;
 
     public static event Action<int> attackAction;
+    public bool isEnemyDead;
 
     private GameObject _enemy;
 
@@ -29,6 +30,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
+        isEnemyDead = false;
         test = FindAnyObjectByType<KeyBindManager>();
         kc = test.attackKey;
     }
@@ -73,5 +75,5 @@ public class PlayerAttack : MonoBehaviour
     }
 
     //For readable booleans
-    bool CanPlayerAttack() => (_enemy.activeInHierarchy && Input.GetKeyDown(kc)) ? true : false; //Will Update this soon
+    bool CanPlayerAttack() => (!isEnemyDead && Input.GetKeyDown(kc)) ? true : false;
 }

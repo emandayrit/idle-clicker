@@ -29,6 +29,7 @@ public class HPBarHandler : MonoBehaviour
         {
             float damageBar = (float)(value.currentHp-1) / (float)value.maxHP;
             hpBar.fillAmount = damageBar;
+            Debug.Log(damageBar);
         }
     }
 

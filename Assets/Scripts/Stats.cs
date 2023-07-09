@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class Stats : MonoBehaviour
 {
+    public bool enemyDead;
+
     [SerializeField] StatsSO stats;
     [SerializeField] Animator enemyDeathAnimation;
     [SerializeField] GameObject victoryUI;
@@ -12,6 +14,7 @@ public class Stats : MonoBehaviour
 
     private void Awake()
     {
+        enemyDead = false;
         _enemyBody = transform.GetChild(0).gameObject;
         stats.InitializeEnemyHP();
     }
@@ -37,6 +40,7 @@ public class Stats : MonoBehaviour
     IEnumerator EnemyDefeatedCoroutine(float _seconds)
     {
         // Do Death animation
+        FindAnyObjectByType<PlayerAttack>().isEnemyDead = true; //to stop doing attack
         enemyDeathAnimation.SetTrigger("Death");
         victoryUI.SetActive(true);
         yield return new WaitForSeconds(_seconds);

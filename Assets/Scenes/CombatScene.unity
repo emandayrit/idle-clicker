@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -674,6 +674,7 @@ MonoBehaviour:
   playerHitTextUI: {fileID: 6264524734462232201, guid: 1dd67ae1936e17c49ad6bf89dd1d1a1d,
     type: 3}
   playerHitParentUI: {fileID: 862657755}
+  isEnemyDead: 0
 --- !u!4 &269919586
 Transform:
   m_ObjectHideFlags: 0
@@ -3640,7 +3641,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}
+  sharedProfile: {fileID: 11400000, guid: ccfde9515ec7eb541a59913c22a9a299, type: 2}
 --- !u!1 &2055639802
 GameObject:
   m_ObjectHideFlags: 0

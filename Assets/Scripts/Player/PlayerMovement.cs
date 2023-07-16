@@ -6,53 +6,48 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Animator playerAnimator;
     [SerializeField] float moveSpeed;
 
-    private Vector3 _input;
-
     void Update()
     {
-        GetInput();
-        Look();
-
-        WalkAnimation();
+        MoveHandle();
     }
 
     void FixedUpdate()
     {
-        Move();
+        MoveDestination();
     }
 
-    void GetInput()
+    void MoveHandle()
     {
-        _input = new Vector3(Input.GetAxisRaw("Horizontal"), 0 , Input.GetAxisRaw("Vertical"));
+        WalkAnimation();
+        PlayerDirection();
     }
 
-    void Look()
+    void PlayerDirection()
     {
-        if(_input != Vector3.zero)
+        if (IsPlayerIdle())
         {
-            Vector3 relative = (transform.position + _input) - transform.position;
-            Quaternion rotation = Quaternion.LookRotation(relative);
-
-            playerBody.transform.rotation = rotation;
+            Vector3 relative = (transform.position + GetInput()) - transform.position;
+            playerBody.transform.rotation = Quaternion.LookRotation(relative);
         }
-    }
-
-    void Move()
-    {
-        transform.position += _input.normalized * moveSpeed * Time.fixedDeltaTime;
     }
 
     void WalkAnimation()
     {
-        // Player Animations here
-        if (_input == Vector3.zero)
-        {
-            playerAnimator.SetFloat("Speed", 0);
-        }
-        else
-        {
-            playerAnimator.SetFloat("Speed", 0.5f);
-        }
+        float _value = (IsPlayerIdle()) ? 0.5f : 0;
+        playerAnimator.SetFloat("Speed", _value);
     }
 
+    void MoveDestination()
+    {
+        transform.position += GetInput().normalized * moveSpeed * Time.fixedDeltaTime;
+    }
+
+    Vector3 GetInput()
+    {
+        Vector3 _input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        return _input;
+    }
+
+    //to enhance readability
+    bool IsPlayerIdle() { return (GetInput() != Vector3.zero) ? true : false; }
 }

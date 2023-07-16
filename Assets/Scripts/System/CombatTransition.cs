@@ -16,8 +16,8 @@ public class CombatTransition : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Stats _enemy = collision.transform.parent.GetComponent<Stats>();
-        if (_enemy.CompareTag("Enemy"))
+        Stats _enemy = collision.gameObject.GetComponentInParent<Stats>();
+        if (_enemy != null && _enemy.CompareTag("Enemy"))
         {
             //to stop player movement and walk animation
             _playerAnimator.SetFloat("Speed", 0);

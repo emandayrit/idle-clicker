@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ba4e6c683f22d46a663caaae5016a0, type: 3}
+  m_Name: Dummy Unique
+  m_EditorClassIdentifier: 
+  isEnemyDead: 0
+  enemyType: 0
+  enemyName: Orchinque
+  enemyLevel: 1
+  enemyBody: {fileID: 5393840061641456039, guid: 655ac8b1fda3d114c9d7716a92aed6b5,
+    type: 3}
+  maxHP: 200
+  health: 200
+  damage: 5
+  defense: 0
+  critChance: 0.1
+  critDamage: 1.25
+  evasion: 0.02
+  activeSkills: []
+  passiveSkills: []
+  goldReward: 200
+  expReward: 30
+  rewards:
+  - {fileID: 11400000, guid: 75b64f51931caae46b54df0643f0ecca, type: 2}
+  - {fileID: 11400000, guid: 09e0e43666916784b935570aff37b6a9, type: 2}

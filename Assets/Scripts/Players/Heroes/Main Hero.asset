@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947705c7070f38146accdb7bd795383c, type: 3}
+  m_Name: Main Hero
+  m_EditorClassIdentifier: 
+  isPlayerDead: 0
+  playerName: Berto
+  playerBody: {fileID: 5393840061641456039, guid: 655ac8b1fda3d114c9d7716a92aed6b5,
+    type: 3}
+  playerLevel: 1
+  playerExp: 0
+  maxHP: 20
+  health: 20
+  stamina: 0
+  damage: 0
+  defense: 0
+  critChance: 0.05
+  critDamage: 1.25
+  evasion: 0.1
+  activeSkills: []
+  passiveSkills: []

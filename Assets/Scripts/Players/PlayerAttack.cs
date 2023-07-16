@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] KeyCode attackInput = KeyCode.Mouse0;
+    //[SerializeField] KeyCode attackInput = KeyCode.Mouse0;
     KeyCode kc;
 
     [SerializeField] GameObject weaponArm;

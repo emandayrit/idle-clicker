@@ -25,6 +25,7 @@ public class EnemyHealthBar : MonoBehaviour
 
     public void SetHealthBar(int _damage)
     {
+        enemy.currentHp -= _damage;
         hpSlider.value = enemy.currentHp;
         hpText.text = $"{enemy.currentHp}/{enemy.maxHP}";
     }

@@ -24,7 +24,7 @@ public class Stats : MonoBehaviour
     {
         if(IsTargetAnEnemy())
         {
-            stats.currentHp -= _damage;
+            //stats.currentHp -= _damage;
 
             if (IsEnemyDead())
             {

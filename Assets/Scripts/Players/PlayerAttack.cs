@@ -36,7 +36,6 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-
     void DoAttack()
     {
         attackAction?.Invoke(playerStats.attackDamage); // Starts to listen to Stats script

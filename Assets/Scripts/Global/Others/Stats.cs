@@ -9,14 +9,11 @@ public class Stats : MonoBehaviour
     [SerializeField] StatsSO stats;
     [SerializeField] Animator enemyDeathAnimation;
     [SerializeField] GameObject victoryUI;
-    private GameObject _enemyBody;
     private string _enemyTag = "Enemy";
 
     private void Awake()
     {
         enemyDead = false;
-        _enemyBody = transform.GetChild(0).gameObject;
-        stats.InitializeEnemyHP();
     }
 
     private void OnEnable() => PlayerAttack.attackAction += EnemyDamage;

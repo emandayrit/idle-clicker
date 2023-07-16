@@ -19,14 +19,7 @@ public class PlayerAttack : MonoBehaviour
     public static event Action<int> attackAction;
     public bool isEnemyDead;
 
-    private GameObject _enemy;
-
     KeyBindManager test;
-
-    private void Awake()
-    {
-        _enemy = FindObjectOfType<Stats>().transform.GetChild(0).gameObject; //might need to change soon
-    }
 
     private void Start()
     {

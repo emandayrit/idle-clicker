@@ -1,3 +1,4 @@
+using System.Numerics;
 using UnityEngine;
 
 [CreateAssetMenu (fileName = "StatsSO", menuName = "Stats")]

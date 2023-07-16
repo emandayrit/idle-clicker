@@ -27,7 +27,7 @@ public class HPBarHandler : MonoBehaviour
     {
         if (gameObject.CompareTag("Enemy"))
         {
-            float damageBar = (float)(value.currentHp-1) / (float)value.maxHP;
+            float damageBar = (float)(value.currentHp) / (float)value.maxHP;
             hpBar.fillAmount = damageBar;
             Debug.Log(damageBar);
         }
@@ -35,6 +35,7 @@ public class HPBarHandler : MonoBehaviour
 
     void UpdateHPBarText()
     {
-        hpBarText.text = $"{value.currentHp}/{value.maxHP}";
+        float _value = (value.currentHp <= 0) ? 0 : value.currentHp;
+        hpBarText.text = $"{_value}/{value.maxHP}";
     }
 }

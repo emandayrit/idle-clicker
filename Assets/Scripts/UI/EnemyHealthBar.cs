@@ -10,9 +10,9 @@ public class EnemyHealthBar : MonoBehaviour
 
     private void Awake() => SetUI(enemy.maxHP);
 
-    private void OnEnable() => PlayerAttack.attackAction += SetHealthBar;
+    private void OnEnable() => PlayerAttack.action += SetHealthBar;
 
-    private void OnDisable() => PlayerAttack.attackAction -= SetHealthBar;
+    private void OnDisable() => PlayerAttack.action -= SetHealthBar;
 
     private void SetUI(int _value)
     {

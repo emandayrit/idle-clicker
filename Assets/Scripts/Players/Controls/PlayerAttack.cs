@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Attacking : MonoBehaviour
+public class PlayerAttack : MonoBehaviour
 {
     private KeyCode attackInput;
     private KeyBindManager bindManager;

@@ -15,8 +15,12 @@ public class SliderSetup : MonoBehaviour
         volumeController = FindAnyObjectByType<VolumeController>();
         audioManager = FindAnyObjectByType<AudioManager>();
 
-        UpdateSlider();
-        UpdateVolume();
+        if(volumeController != null)
+        {
+            UpdateSlider();
+            UpdateVolume();
+        }
+
 
         bgmVolumeSlider.onValueChanged.AddListener(delegate { UpdateVolume(); });
         sfxVolumeSlider.onValueChanged.AddListener(delegate { UpdateVolume(); });
@@ -34,7 +38,6 @@ public class SliderSetup : MonoBehaviour
     public void UpdateVolume()
     {
         volumeController.UpdatePref(bgmVolumeSlider, sfxVolumeSlider);
-
         volumeController.GetSourceAndUpdate(bgmVolumeSlider, audioManager.audioBGM);
         volumeController.GetSourceAndUpdate(sfxVolumeSlider, audioManager.audioSFX);
     }

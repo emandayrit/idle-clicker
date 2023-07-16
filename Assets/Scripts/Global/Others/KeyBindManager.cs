@@ -20,7 +20,7 @@ public class KeyBindManager : MonoBehaviour
     Button button;
     public Button buttonObject;
 
-    private bool isClick = true;
+    //private bool isClick = true;
 
     private void Awake()
     {
@@ -67,7 +67,7 @@ public class KeyBindManager : MonoBehaviour
                     {
                         //text = "LEFT MOUSE";
                         attackKey = KeyCode.Mouse0;
-                        isClick = false;
+                        //isClick = false;
                     }
                     else if (Input.GetMouseButtonDown(1))
                     {

@@ -19,9 +19,9 @@ public class EnemyAnimation : MonoBehaviour
     [Header("Scriptable")]
     [SerializeField] StatsSO enemy;
 
-    private void OnEnable() => Attacking.action += EnemyHurt;
+    private void OnEnable() => PlayerAttack.action += EnemyHurt;
 
-    private void OnDisable() => Attacking.action -= EnemyHurt;
+    private void OnDisable() => PlayerAttack.action -= EnemyHurt;
 
     private void EnemyHurt(int _damage)
     {
@@ -41,7 +41,7 @@ public class EnemyAnimation : MonoBehaviour
 
     IEnumerator EnemyDefeatedCoroutine(float _seconds)
     {
-        Attacking.canAttack = true;
+        PlayerAttack.canAttack = true;
 
         enemyDeathAnimation.SetTrigger("Death");
         victoryUI.SetActive(true);

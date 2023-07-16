@@ -7,11 +7,17 @@ public class PlaySFX : MonoBehaviour
 
     private void Start()
     {
-        manager = FindAnyObjectByType<AudioManager>();
+        if(manager != null)
+        {
+            manager = FindAnyObjectByType<AudioManager>();
+        }
     }
 
     public void PlaySound(string name)
     {
-        manager.PlaySFX(name);
+        if (manager != null)
+        {
+            manager.PlaySFX(name);
+        }
     }
 }

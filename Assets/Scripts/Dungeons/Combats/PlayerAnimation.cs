@@ -14,15 +14,15 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] float exitCombatInSeconds = 3;
 
     [Header("Hit UI Objects")]
-    [SerializeField] GameObject playerHitTextPrefab;
-    [SerializeField] GameObject playerHitTextParent;
+    [SerializeField] GameObject enemyHitTextPrefab;
+    [SerializeField] GameObject enemyHitTextParent;
 
     [Header("Scriptable")]
     [SerializeField] StatsSO player;
 
-    private void OnEnable() => Attacking.action += StartWeaponAnimation;
+    private void OnEnable() => PlayerAttack.action += StartWeaponAnimation;
 
-    private void OnDisable() => Attacking.action -= StartWeaponAnimation;
+    private void OnDisable() => PlayerAttack.action -= StartWeaponAnimation;
 
     private void StartWeaponAnimation(int _value)
     {
@@ -39,7 +39,7 @@ public class PlayerAnimation : MonoBehaviour
 
     IEnumerator EnemyDefeatedCoroutine(float _seconds)
     {
-        Attacking.canAttack = true;
+        PlayerAttack.canAttack = true;
 
         playerDeathAnimation.SetTrigger("Death");
         defeatUI.SetActive(true);
@@ -54,13 +54,13 @@ public class PlayerAnimation : MonoBehaviour
     {
         if (IsUIAvailable())
         {
-            GameObject hitUI = Instantiate(playerHitTextPrefab, playerHitTextParent.transform);
+            GameObject hitUI = Instantiate(enemyHitTextPrefab, enemyHitTextParent.transform);
             hitUI.GetComponent<TMP_Text>().text = $"-{_damage}";
             Destroy(hitUI, 1);
         }
     }
 
     //For readable booleans
-    bool IsUIAvailable() => (playerHitTextPrefab && playerHitTextParent) ? true : false;
+    bool IsUIAvailable() => (enemyHitTextPrefab && enemyHitTextParent) ? true : false;
     bool IsPlayerDead() => (player.currentHp <= 0) ? true : false;
 }

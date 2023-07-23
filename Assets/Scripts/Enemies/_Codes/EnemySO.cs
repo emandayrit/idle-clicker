@@ -13,22 +13,22 @@ public class EnemySO : ScriptableObject
     public GameObject enemyBody;
 
     [Header("For Attributes")] //default attributes
-    public float maxHP = 100;
-    public float health = 100;
-    public float damage = 3;
-    public float defense = 0;
+    public double maxHP = 100;
+    public double currentHp = 100;
+    public double damage = 3;
+    public double defense = 0;
     [Tooltip("1 is equal to 100%")]
-    public float critChance = 0.1f;
+    public double critChance = 0.1f;
     [Tooltip("1 is equal to 100%")]
-    public float critDamage = 1.25f;
+    public double critDamage = 1.25f;
 
     [Header("For Rewards")]
-    public float goldReward;
-    public float expReward;
+    public double goldReward;
+    public double expReward;
 
     public void ResetHealth()
     {
-        health = maxHP;
+        currentHp = maxHP;
     }
 
     

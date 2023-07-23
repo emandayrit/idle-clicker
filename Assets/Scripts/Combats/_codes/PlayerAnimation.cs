@@ -18,28 +18,28 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] GameObject enemyHitTextParent;
 
     [Header("Scriptable")]
-    [SerializeField] StatsSO player;
+    [SerializeField] PlayerSO player;
 
     private void OnEnable() => PlayerAttack.action += StartWeaponAnimation;
 
     private void OnDisable() => PlayerAttack.action -= StartWeaponAnimation;
 
-    private void StartWeaponAnimation(int _value)
+    private void StartWeaponAnimation(double _value)
     {
         playerWeapon.GetComponent<Animator>().SetTrigger("Attack");
     }
 
-    private void EnemyDefeated()
+    private void PlayerDefeated()
     {
         if (IsPlayerDead())
         {
-            StartCoroutine(EnemyDefeatedCoroutine(exitCombatInSeconds));
+            StartCoroutine(PlayerDefeatedCoroutine(exitCombatInSeconds));
         }
     }
 
-    IEnumerator EnemyDefeatedCoroutine(float _seconds)
+    IEnumerator PlayerDefeatedCoroutine(float _seconds)
     {
-        PlayerAttack.canAttack = true;
+        PlayerAttack.canPlayerAttack = false;
 
         playerDeathAnimation.SetTrigger("Death");
         defeatUI.SetActive(true);

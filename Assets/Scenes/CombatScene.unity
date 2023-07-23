@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -128,27 +128,27 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1163047461}
     m_Modifications:
     - target: {fileID: 3277601380330855944, guid: 94c158fc2cdd44c409be84f6b0167b17,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3277601380330855944, guid: 94c158fc2cdd44c409be84f6b0167b17,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 14.722571
       objectReference: {fileID: 0}
     - target: {fileID: 3277601380330855944, guid: 94c158fc2cdd44c409be84f6b0167b17,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.1710234
       objectReference: {fileID: 0}
     - target: {fileID: 3277601380330855944, guid: 94c158fc2cdd44c409be84f6b0167b17,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 6.424695
       objectReference: {fileID: 0}
     - target: {fileID: 3277601380330855944, guid: 94c158fc2cdd44c409be84f6b0167b17,
         type: 3}
@@ -158,17 +158,17 @@ PrefabInstance:
     - target: {fileID: 3277601380330855944, guid: 94c158fc2cdd44c409be84f6b0167b17,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3277601380330855944, guid: 94c158fc2cdd44c409be84f6b0167b17,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3277601380330855944, guid: 94c158fc2cdd44c409be84f6b0167b17,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3277601380330855944, guid: 94c158fc2cdd44c409be84f6b0167b17,
         type: 3}
@@ -606,7 +606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41cbef9eda04cd14c982f0622a9bbd81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: f337d32faaba8284593f594a8a0cb572, type: 2}
+  player: {fileID: 11400000, guid: a7baa2ba2e039de4987756a6b2558c9c, type: 2}
 --- !u!850595691 &273603869
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1974,7 +1974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpSlider: {fileID: 936913096}
   hpText: {fileID: 1782666838}
-  enemy: {fileID: 11400000, guid: cb290f55679d6f0498719b6f843f83cf, type: 2}
+  enemy: {fileID: 11400000, guid: 9f3304c9595aa0f49b02337a270cfb39, type: 2}
 --- !u!1 &1033904438
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,6 +2244,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1088805157}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1089634231 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3277601380330855944, guid: 94c158fc2cdd44c409be84f6b0167b17,
+    type: 3}
+  m_PrefabInstance: {fileID: 54337282}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1122261756
 GameObject:
   m_ObjectHideFlags: 0
@@ -2423,6 +2429,7 @@ Transform:
   - {fileID: 107594324}
   - {fileID: 339086803}
   - {fileID: 269919586}
+  - {fileID: 1089634231}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3801,7 +3808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpSlider: {fileID: 1563284574}
   hpText: {fileID: 1443642097}
-  player: {fileID: 11400000, guid: f337d32faaba8284593f594a8a0cb572, type: 2}
+  player: {fileID: 11400000, guid: a7baa2ba2e039de4987756a6b2558c9c, type: 2}
 --- !u!114 &1619949683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3821,7 +3828,7 @@ MonoBehaviour:
   playerHitTextUI: {fileID: 6264524734462232201, guid: 1dd67ae1936e17c49ad6bf89dd1d1a1d,
     type: 3}
   playerHitParentUI: {fileID: 3723384169179559730}
-  enemy: {fileID: 11400000, guid: cb290f55679d6f0498719b6f843f83cf, type: 2}
+  enemy: {fileID: 11400000, guid: 9f3304c9595aa0f49b02337a270cfb39, type: 2}
 --- !u!1 &1636316909
 GameObject:
   m_ObjectHideFlags: 0
@@ -6948,7 +6955,7 @@ MonoBehaviour:
   exitCombatInSeconds: 3
   enemyHitTextPrefab: {fileID: 0}
   enemyHitTextParent: {fileID: 0}
-  player: {fileID: 11400000, guid: f337d32faaba8284593f594a8a0cb572, type: 2}
+  player: {fileID: 11400000, guid: a7baa2ba2e039de4987756a6b2558c9c, type: 2}
 --- !u!33 &8069485477410719487
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class PlayerSO : ScriptableObject
 
     [Header("For Attributes")] //default attributes
     public double maxHP = 30;
-    public double health = 30;
+    public double currentHp = 30;
     public double stamina = 0;
     public double damage = 1;
     public double defense = 0;
@@ -31,6 +31,6 @@ public class PlayerSO : ScriptableObject
 
     public void ResetHealth()
     {
-        health = maxHP;
+        currentHp = maxHP;
     }
 }

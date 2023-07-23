@@ -6,27 +6,34 @@ public class EnemyHealthBar : MonoBehaviour
 {
     [SerializeField] Slider hpSlider;
     [SerializeField] TMP_Text hpText;
-    [SerializeField] StatsSO enemy;
+    [SerializeField] EnemySO enemy;
 
     private void Awake() => SetUI(enemy.maxHP);
 
-    private void OnEnable() => PlayerAttack.action += SetHealthBar;
+    private void OnEnable() => PlayerAttack.action += SetEnemySliderHealth;
 
-    private void OnDisable() => PlayerAttack.action -= SetHealthBar;
+    private void OnDisable() => PlayerAttack.action -= SetEnemySliderHealth;
 
-    private void SetUI(int _value)
+    private void SetUI(double _value)
     {
-        enemy.InitializeEnemyHP();
+        enemy.ResetHealth();
 
-        hpSlider.maxValue = _value;
-        hpSlider.value = _value;
+        hpSlider.maxValue = (float)_value;
+
+        hpSlider.value = (float)_value;
         hpText.text = $"{_value}/{_value}";
     }
 
-    public void SetHealthBar(int _damage)
+    public void SetEnemySliderHealth(double _damage)
+    {
+        EnemyTakeDamage(_damage);
+
+        hpSlider.value = (float)enemy.currentHp;
+        hpText.text = $"{enemy.currentHp}/{enemy.maxHP}";
+    }
+
+    private void EnemyTakeDamage(double _damage)
     {
         enemy.currentHp -= _damage;
-        hpSlider.value = enemy.currentHp;
-        hpText.text = $"{enemy.currentHp}/{enemy.maxHP}";
     }
 }

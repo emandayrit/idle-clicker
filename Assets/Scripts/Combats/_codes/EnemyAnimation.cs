@@ -17,13 +17,13 @@ public class EnemyAnimation : MonoBehaviour
     [SerializeField] GameObject playerHitParentUI;
 
     [Header("Scriptable")]
-    [SerializeField] StatsSO enemy;
+    [SerializeField] EnemySO enemy;
 
     private void OnEnable() => PlayerAttack.action += EnemyHurt;
 
     private void OnDisable() => PlayerAttack.action -= EnemyHurt;
 
-    private void EnemyHurt(int _damage)
+    private void EnemyHurt(double _damage)
     {
         enemyBody.GetComponent<Animator>().SetTrigger("Hurt");
         HitPopUpUI(_damage);
@@ -41,7 +41,7 @@ public class EnemyAnimation : MonoBehaviour
 
     IEnumerator EnemyDefeatedCoroutine(float _seconds)
     {
-        PlayerAttack.canAttack = true;
+        PlayerAttack.canPlayerAttack = false;
 
         enemyDeathAnimation.SetTrigger("Death");
         victoryUI.SetActive(true);
@@ -51,7 +51,7 @@ public class EnemyAnimation : MonoBehaviour
         SceneManager.LoadScene(1); //0 = Main Menu, 1 = Game Scene, 2 = Combat Scene
     }
 
-    private void HitPopUpUI(int _damage)
+    private void HitPopUpUI(double _damage)
     {
         if (IsUIAvailable())
         {

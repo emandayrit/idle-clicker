@@ -6,30 +6,29 @@ public class PlayerAttack : MonoBehaviour
     private KeyCode attackInput;
     private KeyBindManager bindManager;
 
-    [SerializeField] StatsSO playerStats;
-
-    public static bool canAttack;
-    public static event Action<int> action;
+    [SerializeField] PlayerSO player;
+    public static event Action<double> action;
+    public static bool canPlayerAttack = true;
 
     private void Start() => SetInputs();
 
-    private void Update() => DoAttack();
+    private void Update() => Attack();
 
-    private void DoAttack()
+    private void Attack()
     {
-        if (IsAbleToAttack())
+        if (canAttack())
         {
-            action?.Invoke(playerStats.attackDamage);
+            action?.Invoke(player.damage);
         }
     }
 
     private void SetInputs()
     {
-        canAttack = false;
+        canPlayerAttack = true;
         bindManager = FindAnyObjectByType<KeyBindManager>();
         attackInput = bindManager.attackKey;
     }
 
     //For readable booleans
-    bool IsAbleToAttack() => (!canAttack && Input.GetKeyDown(attackInput)) ? true : false;
+    bool canAttack() => (canPlayerAttack && Input.GetKeyDown(attackInput)) ? true : false;
 }

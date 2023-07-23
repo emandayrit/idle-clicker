@@ -6,20 +6,20 @@ public class PlayerHealthBar : MonoBehaviour
 {
     [SerializeField] Slider hpSlider;
     [SerializeField] TMP_Text hpText;
-    [SerializeField] StatsSO player;
+    [SerializeField] PlayerSO player;
 
     private void Awake() => SetUI(player.maxHP);
 
-    private void SetUI(int _value)
+    private void SetUI(double _value)
     {
-        hpSlider.maxValue = _value;
-        hpSlider.value = _value;
+        hpSlider.maxValue = (float)_value;
+        hpSlider.value = (float)_value;
         hpText.text = $"{_value}/{_value}";
     }
 
-    public void SetHealthBar(int _damage)
+    public void SetPlayerSliderHealth(double _damage)
     {
-        hpSlider.value = player.currentHp;
+        hpSlider.value = (float)player.currentHp;
         hpText.text = $"{player.currentHp}/{player.maxHP}";
     }
 }

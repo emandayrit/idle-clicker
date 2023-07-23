@@ -3821,13 +3821,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ca9f0085fbad74fab0a4901cd4c6a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBody: {fileID: 7917216740364970446}
-  enemyDeathAnimation: {fileID: 3948502667496468226}
+  enemyAnimator: {fileID: 3948502667496468226}
   victoryUI: {fileID: 1291388564}
   exitCombatInSeconds: 3
-  playerHitTextUI: {fileID: 6264524734462232201, guid: 1dd67ae1936e17c49ad6bf89dd1d1a1d,
-    type: 3}
-  playerHitParentUI: {fileID: 3723384169179559730}
+  popUpDamageParent: {fileID: 0}
+  popUpDamagePrefab: {fileID: 0}
   enemy: {fileID: 11400000, guid: 9f3304c9595aa0f49b02337a270cfb39, type: 2}
 --- !u!1 &1636316909
 GameObject:
@@ -6949,12 +6947,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dfb95589e41a334cb30dde5070ddfcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerWeapon: {fileID: 4015407971612400865}
-  playerDeathAnimation: {fileID: 0}
+  playerAnimator: {fileID: 5419295287131989098}
   defeatUI: {fileID: 0}
   exitCombatInSeconds: 3
-  enemyHitTextPrefab: {fileID: 0}
-  enemyHitTextParent: {fileID: 0}
+  popUpDamageParent: {fileID: 0}
+  popUpDamagePrefab: {fileID: 0}
   player: {fileID: 11400000, guid: a7baa2ba2e039de4987756a6b2558c9c, type: 2}
 --- !u!33 &8069485477410719487
 MeshFilter:

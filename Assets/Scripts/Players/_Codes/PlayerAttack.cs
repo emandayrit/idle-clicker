@@ -7,11 +7,11 @@ public class PlayerAttack : MonoBehaviour
     private KeyBindManager bindManager;
 
     [SerializeField] PlayerSO player;
+
     public static event Action<double> action;
     public static bool canPlayerAttack = true;
 
     private void Start() => SetInputs();
-
     private void Update() => Attack();
 
     private void Attack()
@@ -25,6 +25,8 @@ public class PlayerAttack : MonoBehaviour
     private void SetInputs()
     {
         canPlayerAttack = true;
+
+        //keybinds script ni vincent
         bindManager = FindAnyObjectByType<KeyBindManager>();
         attackInput = bindManager.attackKey;
     }

@@ -7,15 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    [Header("Player Object")]
-    [SerializeField] GameObject playerWeapon;
-    [SerializeField] Animator playerDeathAnimation;
+    [Header("Animations")]
+    [SerializeField] Animator playerAnimator;
     [SerializeField] GameObject defeatUI;
     [SerializeField] float exitCombatInSeconds = 3;
 
-    [Header("Hit UI Objects")]
-    [SerializeField] GameObject enemyHitTextPrefab;
-    [SerializeField] GameObject enemyHitTextParent;
+    [Header("PopUp Damage")]
+    [SerializeField] GameObject popUpDamageParent;
+    [SerializeField] GameObject popUpDamagePrefab;
 
     [Header("Scriptable")]
     [SerializeField] PlayerSO player;
@@ -26,41 +25,39 @@ public class PlayerAnimation : MonoBehaviour
 
     private void StartWeaponAnimation(double _value)
     {
-        playerWeapon.GetComponent<Animator>().SetTrigger("Attack");
+        playerAnimator.SetTrigger("Attack");
     }
 
     private void PlayerDefeated()
     {
         if (IsPlayerDead())
         {
-            StartCoroutine(PlayerDefeatedCoroutine(exitCombatInSeconds));
+            StartCoroutine(PlayerDefeatedCoroutine());
         }
     }
 
-    IEnumerator PlayerDefeatedCoroutine(float _seconds)
+    IEnumerator PlayerDefeatedCoroutine()
     {
         PlayerAttack.canPlayerAttack = false;
-
-        playerDeathAnimation.SetTrigger("Death");
+        playerAnimator.SetTrigger("Death");
         defeatUI.SetActive(true);
 
-        yield return new WaitForSeconds(_seconds);
-
+        yield return new WaitForSeconds(exitCombatInSeconds);
         SceneManager.LoadScene(1); //0 = Main Menu, 1 = Game Scene, 2 = Combat Scene
     }
 
     //when player is taking damage
     private void HitPopUpUI(int _damage)
     {
-        if (IsUIAvailable())
+        if (IsPopUpPresent())
         {
-            GameObject hitUI = Instantiate(enemyHitTextPrefab, enemyHitTextParent.transform);
+            GameObject hitUI = Instantiate(popUpDamagePrefab, popUpDamageParent.transform);
             hitUI.GetComponent<TMP_Text>().text = $"-{_damage}";
             Destroy(hitUI, 1);
         }
     }
 
     //For readable booleans
-    bool IsUIAvailable() => (enemyHitTextPrefab && enemyHitTextParent) ? true : false;
+    bool IsPopUpPresent() => (popUpDamagePrefab && popUpDamageParent) ? true : false;
     bool IsPlayerDead() => (player.currentHp <= 0) ? true : false;
 }

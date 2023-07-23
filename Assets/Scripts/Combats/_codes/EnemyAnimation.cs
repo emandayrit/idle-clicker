@@ -6,15 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class EnemyAnimation : MonoBehaviour
 {
-    [Header("Enemy Object")]
-    [SerializeField] GameObject enemyBody;
-    [SerializeField] Animator enemyDeathAnimation;
+    [Header("Animations")]
+    [SerializeField] Animator enemyAnimator;
     [SerializeField] GameObject victoryUI;
     [SerializeField] float exitCombatInSeconds = 3;
 
-    [Header("UI Objects")]
-    [SerializeField] GameObject playerHitTextUI;
-    [SerializeField] GameObject playerHitParentUI;
+    [Header("PopUp Damage")]
+    [SerializeField] GameObject popUpDamageParent;
+    [SerializeField] GameObject popUpDamagePrefab;
 
     [Header("Scriptable")]
     [SerializeField] EnemySO enemy;
@@ -23,11 +22,11 @@ public class EnemyAnimation : MonoBehaviour
 
     private void OnDisable() => PlayerAttack.action -= EnemyHurt;
 
+
     private void EnemyHurt(double _damage)
     {
-        enemyBody.GetComponent<Animator>().SetTrigger("Hurt");
-        HitPopUpUI(_damage);
-
+        enemyAnimator.SetTrigger("Hurt");
+        ShowPopUpDamageUI(_damage);
         EnemyDefeated();
     }
 
@@ -35,27 +34,25 @@ public class EnemyAnimation : MonoBehaviour
     {
         if (IsEnemyDead())
         {
-            StartCoroutine(EnemyDefeatedCoroutine(exitCombatInSeconds));
+            StartCoroutine(EnemyDefeatedCoroutine());
         }
     }
 
-    IEnumerator EnemyDefeatedCoroutine(float _seconds)
+    IEnumerator EnemyDefeatedCoroutine()
     {
         PlayerAttack.canPlayerAttack = false;
-
-        enemyDeathAnimation.SetTrigger("Death");
+        enemyAnimator.SetTrigger("Death");
         victoryUI.SetActive(true);
 
-        yield return new WaitForSeconds(_seconds);
-
+        yield return new WaitForSeconds(exitCombatInSeconds);
         SceneManager.LoadScene(1); //0 = Main Menu, 1 = Game Scene, 2 = Combat Scene
     }
 
-    private void HitPopUpUI(double _damage)
+    private void ShowPopUpDamageUI(double _damage)
     {
-        if (IsUIAvailable())
+        if (IsPopUpPresent())
         {
-            GameObject hitUI = Instantiate(playerHitTextUI, playerHitParentUI.transform);
+            GameObject hitUI = Instantiate(popUpDamagePrefab, popUpDamageParent.transform);
             hitUI.GetComponent<TMP_Text>().text = $"-{_damage}";
             Destroy(hitUI, 1);
         }
@@ -63,6 +60,6 @@ public class EnemyAnimation : MonoBehaviour
 
 
     //For readable booleans
-    bool IsUIAvailable() => (playerHitTextUI && playerHitParentUI) ? true : false;
+    bool IsPopUpPresent() => (popUpDamagePrefab && popUpDamageParent) ? true : false;
     bool IsEnemyDead() => (enemy.currentHp <= 0) ? true : false;
 }

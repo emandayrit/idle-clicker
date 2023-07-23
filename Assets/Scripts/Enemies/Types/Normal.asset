@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ba4e6c683f22d46a663caaae5016a0, type: 3}
+  m_Name: Normal
+  m_EditorClassIdentifier: 
+  isEnemyDead: 0
+  enemyType: 0
+  enemyName: OrcNormal
+  enemyLevel: 1
+  enemyBody: {fileID: 2901642470017278658, guid: 0f7d388aed26e824db476acbf05f8cdd,
+    type: 3}
+  maxHP: 100
+  health: 100
+  damage: 1
+  defense: 0
+  critChance: 0.05
+  critDamage: 1.25
+  goldReward: 100
+  expReward: 10

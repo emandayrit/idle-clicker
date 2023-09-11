@@ -9,18 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 445da104187b5294c8acd99fe0d4937a, type: 3}
-  m_Name: Player1
+  m_Script: {fileID: 11500000, guid: 5e08abfc4971c5b4c824b4c95e255655, type: 3}
+  m_Name: PlayerAttributes
   m_EditorClassIdentifier: 
-  playerName: Hero
-  baseExperience: 0
-  baseCurrency: 0
-  baseMaterial: 0
   level: 1
   maxHealth: 20
   currentHealth: 20
-  baseAttack: 1
-  baseAttackSpeed: 1
+  baseDamage: 1
+  baseSpeed: 1
   baseDefense: 1
-  baseCritical: 0.1
-  baseCriticalDamage: 1.25
+  baseCritical: 1
+  baseCriticalDamage: 1

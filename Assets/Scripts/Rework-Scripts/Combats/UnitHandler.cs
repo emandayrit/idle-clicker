@@ -7,6 +7,7 @@ public class UnitHandler : MonoBehaviour
 {
     public string unitName;
     public UnitType unitType;
+    public double unitLevel;
 
     public RewardScriptable rewards; //only for enemy or boss
     public AttributeScriptable attributes;
@@ -14,6 +15,7 @@ public class UnitHandler : MonoBehaviour
     private void Awake()
     {
         SetHealth();
+        attributes.SetAttributesByLevel(unitLevel);
     }
 
     private void OnEnable()
@@ -23,12 +25,12 @@ public class UnitHandler : MonoBehaviour
 
     public void SetHealth()
     {
-        attributes.currentHealth = attributes.maxHealth;
+        attributes.mCurrentHealth = attributes.mMaxHealth;
     }
 
-    public void TakeDamage(double damage)
+    public void TakeDamage(UnitHandler attacker)
     {
-        attributes.currentHealth -= damage; //put damage and defense calculation here
+        attributes.mCurrentHealth -= attacker.attributes.mBaseDamage; //put damage and defense calculation here
     }
 
 }

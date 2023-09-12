@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehavior : MonoBehaviour, IDamageable
+public class EnemyBehavior : MonoBehaviour
 {
     private UnitHandler enemyHandler;
     private UnitHandler playerHandler;
@@ -14,25 +14,21 @@ public class EnemyBehavior : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        StartCoroutine(EnemyAttack((float)enemyHandler.attributes.baseSpeed));
+        StartCoroutine(EnemyAttack((float)enemyHandler.attributes.mBaseSpeed));
     }
 
     IEnumerator EnemyAttack(float waitInSecond)
     {
-        while(playerHandler.attributes.currentHealth > 0)
+        while(playerHandler.attributes.mCurrentHealth > 0)
         {
+            
             yield return new WaitForSeconds(waitInSecond);
             
-            TakeDamage(playerHandler,enemyHandler);
+            playerHandler.TakeDamage(enemyHandler);
         }
-    }
 
-    public void TakeDamage(UnitHandler player, UnitHandler enemy)
-    {
-        if (player.attributes.currentHealth > 0)
-        {
-            player.TakeDamage(enemy.attributes.baseDamage);
-        }
+        Debug.Log("Player is dead");
+        CombatResult.PlayerDefeated();
     }
 
     private void InitializeHandlers()

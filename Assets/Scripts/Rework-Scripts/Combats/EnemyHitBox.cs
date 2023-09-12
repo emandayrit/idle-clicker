@@ -5,6 +5,7 @@ public class EnemyHitBox : MonoBehaviour
 {
     private UnitHandler enemyHandler;
     private UnitHandler playerHandler;
+
     private EnemyRespawn enemyRespawn;
 
     private void Awake()
@@ -14,9 +15,9 @@ public class EnemyHitBox : MonoBehaviour
 
     private void OnMouseDown()
     {
-        enemyHandler.TakeDamage(playerHandler.attributes.baseDamage);
+        enemyHandler.TakeDamage(playerHandler);
 
-        if (enemyHandler.attributes.currentHealth < 0)
+        if (enemyHandler.attributes.mCurrentHealth < 0)
         {
             enemyRespawn.EnemyDefeated(gameObject);
         }

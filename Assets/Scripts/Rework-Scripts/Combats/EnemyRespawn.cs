@@ -24,16 +24,31 @@ public class EnemyRespawn : MonoBehaviour
 
     IEnumerator SpawnNextEnemy()
     {
+        GetReward();
+
         yield return new WaitForSeconds(enemyNextSpawnTime);
 
-        if(enemyIndex < enemyList.Count)
+        GetNextEnemy();
+    }
+
+    private void GetReward()
+    {
+        EnemyReward reward = enemyList[enemyIndex-1].GetComponent<EnemyReward>();
+        reward.GetRewards();
+
+        CombatResult.TransferReward(reward.GiveCurrency(), reward.GiveExperience(), reward.GiveMaterial());
+    }
+
+    private void GetNextEnemy()
+    {
+        if (enemyIndex < enemyList.Count)
         {
             enemyList[enemyIndex].SetActive(true);
             enemyIndex++;
         }
         else
         {
-            Debug.Log("All enemies are defeated.");
+            CombatResult.PlayerVictory();
         }
     }
 

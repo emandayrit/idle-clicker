@@ -14,9 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   maxHealth: 20
-  currentHealth: 20
-  baseDamage: 1
+  currentHealth: 14
+  baseDamage: 3
   baseSpeed: 1
   baseDefense: 1
   baseCritical: 1
   baseCriticalDamage: 1
+  mMaxHealth: 20
+  mCurrentHealth: 2
+  mBaseDamage: 3
+  mBaseSpeed: 1
+  mBaseDefense: 1
+  mBaseCritical: 1
+  mBaseCriticalDamage: 1

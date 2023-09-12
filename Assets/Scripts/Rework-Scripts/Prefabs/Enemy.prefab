@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 6532834490287603309}
   - component: {fileID: 6532834490287603306}
   - component: {fileID: 6532834490287603307}
-  - component: {fileID: 6532834490287603310}
   - component: {fileID: 6532834490287603313}
+  - component: {fileID: 6532834490287603310}
   - component: {fileID: 6532834490287603312}
+  - component: {fileID: 5936912228032764202}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -100,6 +101,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6532834490287603313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6532834490287603304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c48d8a84e8cfb41a169522917f9ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6532834490287603310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,20 +127,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Orc
   unitType: 1
+  unitLevel: 2
   rewards: {fileID: 11400000, guid: 5c8eb99b5cc3d66438f3cfb33cb829ff, type: 2}
   attributes: {fileID: 11400000, guid: 85b059074d0cf69478942e3b0fc7a965, type: 2}
---- !u!114 &6532834490287603313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6532834490287603304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c48d8a84e8cfb41a169522917f9ad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6532834490287603312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,5 +140,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ab4a39c7afb5db48bad34072ae58b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5936912228032764202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6532834490287603304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f484e1cfa63ca45b686cdd0d4bc644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
